@@ -1,7 +1,7 @@
 # ApiZuneZx
-## Authors
-- Vũ Quang Tùng 
-- Phạm Việt Phong
+
+Spring boot rest api.
+
 ## Getting Started
 - Port server: 8500.
 - Use mysql in xampp.
@@ -17,3 +17,6 @@ API Examples:
   "gender": "string",
   "phone": "string"
 }
+## Authors
+- Vũ Quang Tùng: https://github.com/mon7dt2
+- Phạm Việt Phong: https://github.com/PvP100
