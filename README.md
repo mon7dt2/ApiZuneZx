@@ -1,11 +1,12 @@
 # ApiZuneZx
 
-Spring boot rest api.
+Spring boot rest api for clothes shop.
 
 ## Getting Started
 - Port server: 8500.
 - Use mysql in xampp.
-API Examples: 
+API Examples:
+- Swagger: http://localhost:8500/swagger-ui.html/
 - GET Get all orders: http://localhost:8500/api/order/orders/
 - POST Register for customer: http://localhost:8500/api/auths/customers/register 
   - Authorization Basic + Base64Encode(username:password), Example: Basic dHVuZzFAZ21haWwuY29tOlR1bmcxMjM0NQ==
