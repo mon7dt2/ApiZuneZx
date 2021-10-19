@@ -15,6 +15,7 @@ import com.ptit.edu.store.customer.models.view.HeaderProfile;
 import com.ptit.edu.store.customer.models.view.CustomerOrderPreview;
 import com.ptit.edu.store.customer.models.view.Profile;
 import com.ptit.edu.store.customer.models.view.SaveClothesPreview;
+import com.ptit.edu.store.product.controller.ProductController;
 import com.ptit.edu.store.product.dao.ProductsRepository;
 import com.ptit.edu.store.product.dao.CustomerOrderRepository;
 import com.ptit.edu.store.customer.models.body.OrderBody;
@@ -31,6 +32,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
 
@@ -77,6 +79,24 @@ public class CustomerController {
             response = new ServerErrorResponse();
         }
         return response;
+    }
+
+    //api upload ảnh avatar
+    @ApiOperation(value = "Api upload ảnh đại diện khách hàng.", response = Iterable.class)
+    @PostMapping("/uploadavatar/{ctmID}")
+    Response uploadCustomerAvatar(@PathVariable("ctmID") String ctmID,
+                                  @RequestParam(value = "avatar") MultipartFile avatar){
+        try{
+            Customer customer = customerRespository.getOne(ctmID);
+            String avatarUrl = ProductController.uploadFile("customers/" + ctmID, ctmID + "_avatar.jpg",
+                    avatar.getBytes(), "image/jpeg");
+            customer.setAvatarUrl(avatarUrl);
+            customerRespository.save(customer);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return new ServerErrorResponse();
+        }
+        return new OkResponse();
     }
 
     @ApiOperation(value = "Lấy Lấy avatar + email + tên Khách hàng", response = Iterable.class)
