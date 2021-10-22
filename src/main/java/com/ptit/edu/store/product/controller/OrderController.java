@@ -153,6 +153,7 @@ public class OrderController {
                 }
                 OrderDetail detail = new OrderDetail();
                 detail.setProduct(p);
+                detail.setSize(d.getSize());
                 detail.addDetail(d);
                 detail.setOrder(order);
                 total += detail.getTotal();

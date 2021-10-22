@@ -8,7 +8,8 @@ public class OrderDetailView {
     private String id;
 
     private String orderId;
-    private String productId;
+    private String productName;
+    private String productAvatarUrl;
     private int quantity;
     private double price;
     private double total;
@@ -17,7 +18,8 @@ public class OrderDetailView {
     public OrderDetailView(OrderDetail detail) {
         this.id = detail.getId();
         this.orderId = detail.getOrder().getId();
-        this.productId = detail.getProduct().getId();
+        this.productName = detail.getProduct().getName();
+        this.productAvatarUrl = detail.getProduct().getAvatarUrl();
         this.quantity = detail.getQuantity();
         this.price = detail.getPrice();
         this.total = (double) quantity * price;
@@ -32,12 +34,20 @@ public class OrderDetailView {
         this.id = id;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductAvatarUrl() {
+        return productAvatarUrl;
+    }
+
+    public void setProductAvatarUrl(String productAvatarUrl) {
+        this.productAvatarUrl = productAvatarUrl;
     }
 
     public String getOrderId() {
