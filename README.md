@@ -1,6 +1,7 @@
 # ApiZuneZx
 
 Spring boot rest api for clothes shop.
+We use java 8 in this project ♥
 
 ## Getting Started
 - Port server: 8500.
@@ -19,5 +20,5 @@ API Examples:
   "phone": "string"
 }
 ## Authors
-- Vũ Quang Tùng: https://github.com/mon7dt2
-- Phạm Việt Phong: https://github.com/PvP100
+- Vũ Quang Tùng: https://github.com/mon7dt2 ♥
+- Phạm Việt Phong: https://github.com/PvP100 ♥
